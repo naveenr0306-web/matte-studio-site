@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matte Studio — From idea to feed</title>
+  <meta name="description" content="Matte Studio plans, films, edits and posts content for brands. All of it, or just the part you need." />
+  <meta name="theme-color" content="#08090A" />
+  <meta property="og:title" content="Matte Studio — From idea to feed" />
+  <meta property="og:description" content="Strategy, production, post and distribution. All of it, or just the part you need." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!--LOGO_SYMBOL-->
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 18 18"><path class="v" d="M9 3v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 16 16"><path d="M2 6h2.5L8 3v10L4.5 10H2z" fill="currentColor"/><path d="M10.5 5.5a3.5 3.5 0 010 5M12.5 3.5a6.5 6.5 0 010 9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 20 20"><path d="M10 16.5s-6.5-3.9-6.5-8.4A3.6 3.6 0 0110 6a3.6 3.6 0 016.5 2.1c0 4.5-6.5 8.4-6.5 8.4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-comment" viewBox="0 0 20 20"><path d="M4 15.5l1-3A6 6 0 1110 16a6 6 0 01-3-.8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-send" viewBox="0 0 20 20"><path d="M17 3L8.5 11.5M17 3l-5 14-3.5-5.5L3 8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-short" viewBox="0 0 20 16"><rect x="6.5" y="1.5" width="7" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="i-long" viewBox="0 0 20 16"><rect x="2" y="3.5" width="16" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="i-carousel" viewBox="0 0 20 16"><rect x="5" y="3" width="10" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 5v6M17.5 5v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-post" viewBox="0 0 20 16"><rect x="4" y="2" width="12" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 20 16"><path d="M6 1.5h6l3 3v10H6z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 20 16"><rect x="3.5" y="2.5" width="13" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3.5 6h13" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 20 16"><path d="M10 1.5a4.5 4.5 0 00-2.5 8.2V12h5V9.7A4.5 4.5 0 0010 1.5zM8 14.5h4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 20 20"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Sticky compact nav (appears after the hero) -->
+  <header class="bar" data-bar aria-label="Site">
+    <div class="bar__inner">
+      <a href="#top" class="logo" aria-label="Matte Studio, back to top"><svg viewBox="0 0 133 18" width="114" height="16"><use href="#wordmark"/></svg></a>
+      <nav class="bar__links" aria-label="Main">
+        <a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a>
+      </nav>
+      <button class="btn btn--sm btn--primary" data-book>Book a free call</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__panel grain">
+        <div class="hero__light" aria-hidden="true"></div>
+        <div class="hero__glow" aria-hidden="true" data-drift></div>
+
+        <div class="nav" data-intro="nav">
+          <a href="#top" class="logo" aria-label="Matte Studio"><svg viewBox="0 0 133 18" width="132" height="18"><use href="#wordmark"/></svg></a>
+          <nav class="nav__links" aria-label="Main">
+            <a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a>
+          </nav>
+          <button class="btn btn--ghost nav__cta" data-book>Book a call</button>
+          <button class="menu-btn" aria-label="Open menu" aria-expanded="false" data-menu-open><span></span><span></span></button>
+        </div>
+
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="chip" data-intro="chip"><span class="chip__dot"></span>Now taking new clients</p>
+            <h1 class="display-xl hero__title">
+              <span class="line"><span data-intro="line">From idea</span></span>
+              <span class="line"><span data-intro="line" class="tone-3">to feed.</span></span>
+            </h1>
+          </div>
+
+          <div class="reels" data-reels aria-label="Example reels">
+            <figure class="reel reel--side" data-reel>
+              <img src="./media/vertical-a.jpg" alt="" class="reel__media" />
+              <div class="reel__ui">
+                <span class="reel__platform"><i></i>Reels</span>
+                <svg class="reel__sound"><use href="#i-sound"/></svg>
+                <figcaption class="reel__caption">A day in<br />the city</figcaption>
+                <div class="reel__actions"><svg><use href="#i-heart"/></svg><svg><use href="#i-comment"/></svg><svg><use href="#i-send"/></svg></div>
+                <div class="reel__creator"><i></i>@[creator]</div>
+                <div class="reel__audio">♫ Original audio</div>
+                <div class="reel__progress"><span data-progress></span></div>
+              </div>
+            </figure>
+            <figure class="reel reel--main" data-reel>
+              <img src="./media/vertical-b.jpg" alt="" class="reel__media" />
+              <div class="reel__ui">
+                <span class="reel__platform"><i></i>Reels</span>
+                <svg class="reel__sound"><use href="#i-sound"/></svg>
+                <figcaption class="reel__caption">Here's what nobody<br />tells you</figcaption>
+                <div class="reel__actions"><svg><use href="#i-heart"/></svg><svg><use href="#i-comment"/></svg><svg><use href="#i-send"/></svg></div>
+                <div class="reel__creator"><i></i>@[client]</div>
+                <div class="reel__audio">♫ Original audio</div>
+                <div class="reel__progress"><span data-progress></span></div>
+              </div>
+            </figure>
+            <figure class="reel reel--side" data-reel>
+              <img src="./media/square.jpg" alt="" class="reel__media" />
+              <div class="reel__ui">
+                <span class="reel__platform"><i></i>Shorts</span>
+                <svg class="reel__sound"><use href="#i-sound"/></svg>
+                <figcaption class="reel__caption">Our morning<br />ritual</figcaption>
+                <div class="reel__actions"><svg><use href="#i-heart"/></svg><svg><use href="#i-comment"/></svg><svg><use href="#i-send"/></svg></div>
+                <div class="reel__creator"><i></i>@[brand]</div>
+                <div class="reel__audio">♫ Original audio</div>
+                <div class="reel__progress"><span data-progress></span></div>
+              </div>
+            </figure>
+          </div>
+
+          <div class="hero__bottom">
+            <p class="body-l tone-3" data-intro="fade">Strategy, production, post and distribution. All of it, or just the part you need.</p>
+            <div class="ctas" data-intro="fade">
+              <button class="btn btn--primary" data-book>Book a free call</button>
+              <a class="btn btn--ghost" href="#work">See the work</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAUNCH STRIP -->
+    <section class="strip" aria-label="What we make">
+      <div class="strip__inner" data-stagger>
+        <span class="mono-label tone-4">We make</span>
+        <span>Reels</span><span>Shorts</span><span>YouTube</span><span>Podcasts</span><span>LinkedIn</span><span>Carousels</span>
+      </div>
+    </section>
+
+    <!-- 1.0 SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <header class="head">
+          <p class="index"><b>1.0</b>Services</p>
+          <h2 class="h1" data-split><span class="tone-1">Three ways to work with us.</span> <span class="tone-3">Start where you are.</span></h2>
+        </header>
+
+        <div class="seg" role="tablist" aria-label="Ways to work with us" data-seg="services">
+          <span class="seg__thumb" aria-hidden="true"></span>
+          <button class="seg__item is-active" role="tab" aria-selected="true" aria-controls="panel-complete" id="tab-complete">Complete Content <small>If you have an idea</small></button>
+          <button class="seg__item" role="tab" aria-selected="false" aria-controls="panel-editing" id="tab-editing" tabindex="-1">Editing &amp; Posting <small>If you have footage</small></button>
+          <button class="seg__item" role="tab" aria-selected="false" aria-controls="panel-plan" id="tab-plan" tabindex="-1">Content Plan <small>If you need a plan</small></button>
+        </div>
+
+        <div class="panels" data-panels>
+          <!-- Complete Content -->
+          <div class="panel is-active" role="tabpanel" id="panel-complete" aria-labelledby="tab-complete">
+            <p class="body-l tone-3 panel__lead">You share the idea. We plan it, film it, edit it and post it for you.</p>
+            <div class="demo">
+              <div class="demo__glow" aria-hidden="true"></div>
+              <div class="demo__flow">
+                <div class="demo__in">
+                  <p class="mono-small tone-3">YOU GIVE US</p>
+                  <h3 class="h2">An idea.</h3>
+                  <p class="body-s tone-3">Just the idea. We take care of the rest.</p>
+                  <div class="brief">
+                    <p class="mono-tag tone-3">Brief · 1 page</p>
+                    <p class="body-l">“Launch our new product to founders on LinkedIn and Instagram.”</p>
+                    <span class="brief__line" style="--w:270px"></span><span class="brief__line" style="--w:210px"></span><span class="brief__line" style="--w:240px"></span>
+                  </div>
+                </div>
+                <div class="demo__arrow" aria-hidden="true"><span><svg><use href="#i-arrow"/></svg></span></div>
+                <div class="demo__out">
+                  <p class="mono-small tone-3">YOU GET, EVERY MONTH</p>
+                  <div class="plat"><p class="plat__name">Instagram</p><div class="plat__row"><span><svg><use href="#i-short"/></svg>[12] Reels</span><span><svg><use href="#i-carousel"/></svg>[4] Carousels</span><span><svg><use href="#i-post"/></svg>[8] Stories</span></div></div>
+                  <div class="plat"><p class="plat__name">YouTube</p><div class="plat__row"><span><svg><use href="#i-long"/></svg>[2] Long-form</span><span><svg><use href="#i-short"/></svg>[12] Shorts</span><span><svg><use href="#i-post"/></svg>[4] Posts</span></div></div>
+                  <div class="plat"><p class="plat__name">LinkedIn</p><div class="plat__row"><span><svg><use href="#i-short"/></svg>[4] Video</span><span><svg><use href="#i-carousel"/></svg>[4] Carousels</span><span><svg><use href="#i-post"/></svg>[8] Posts</span></div></div>
+                </div>
+              </div>
+              <p class="demo__outcome h3">One idea becomes about [50] posts a month, on 3 platforms.</p>
+            </div>
+          </div>
+
+          <!-- Editing & Posting -->
+          <div class="panel" role="tabpanel" id="panel-editing" aria-labelledby="tab-editing" hidden>
+            <p class="body-l tone-3 panel__lead">You send the footage. We edit it, package it and post it for you.</p>
+            <div class="demo">
+              <div class="demo__glow" aria-hidden="true"></div>
+              <div class="demo__flow">
+                <div class="demo__in">
+                  <p class="mono-small tone-3">YOU GIVE US</p>
+                  <h3 class="h2">Your footage.</h3>
+                  <p class="body-s tone-3">Raw clips from your phone or camera. No editing needed.</p>
+                  <div class="brief">
+                    <p class="mono-tag tone-3">Footage · 14 clips</p>
+                    <ul class="clips">
+                      <li><span>IMG_2041.mov</span><span>02:14</span></li>
+                      <li><span>IMG_2042.mov</span><span>00:48</span></li>
+                      <li><span>Interview_A.mp4</span><span>11:32</span></li>
+                      <li><span>B-roll_office.mp4</span><span>04:05</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="demo__arrow" aria-hidden="true"><span><svg><use href="#i-arrow"/></svg></span></div>
+                <div class="demo__out">
+                  <p class="mono-small tone-3">YOU GET, EVERY MONTH</p>
+                  <div class="plat"><p class="plat__name">Instagram</p><div class="plat__row"><span><svg><use href="#i-short"/></svg>[8] Reels</span><span><svg><use href="#i-carousel"/></svg>[2] Carousels</span><span><svg><use href="#i-post"/></svg>[6] Stories</span></div></div>
+                  <div class="plat"><p class="plat__name">YouTube</p><div class="plat__row"><span><svg><use href="#i-long"/></svg>[1] Long-form</span><span><svg><use href="#i-short"/></svg>[8] Shorts</span><span><svg><use href="#i-post"/></svg>[2] Posts</span></div></div>
+                  <div class="plat"><p class="plat__name">LinkedIn</p><div class="plat__row"><span><svg><use href="#i-short"/></svg>[4] Video</span><span><svg><use href="#i-carousel"/></svg>[2] Carousels</span><span><svg><use href="#i-post"/></svg>[4] Posts</span></div></div>
+                </div>
+              </div>
+              <p class="demo__outcome h3">Your footage becomes about [30] posts a month, ready to publish.</p>
+            </div>
+          </div>
+
+          <!-- Content Plan -->
+          <div class="panel" role="tabpanel" id="panel-plan" aria-labelledby="tab-plan" hidden>
+            <p class="body-l tone-3 panel__lead">We look at your content and give you a clear plan you can follow on your own.</p>
+            <div class="demo">
+              <div class="demo__glow" aria-hidden="true"></div>
+              <div class="demo__flow">
+                <div class="demo__in">
+                  <p class="mono-small tone-3">YOU GIVE US</p>
+                  <h3 class="h2">Your goals.</h3>
+                  <p class="body-s tone-3">Who you want to reach, and what you sell.</p>
+                  <div class="brief">
+                    <p class="mono-tag tone-3">Questionnaire · 10 min</p>
+                    <ul class="clips clips--qs">
+                      <li><span>Who is your audience?</span></li>
+                      <li><span>What do you want them to do?</span></li>
+                      <li><span>Which platforms do you use today?</span></li>
+                      <li><span>How often can you post?</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="demo__arrow" aria-hidden="true"><span><svg><use href="#i-arrow"/></svg></span></div>
+                <div class="demo__out">
+                  <p class="mono-small tone-3">YOU GET, ONCE</p>
+                  <div class="plat"><p class="plat__name">Content review</p><div class="plat__row"><span><svg><use href="#i-check"/></svg>What works</span><span><svg><use href="#i-close"/></svg>What to stop</span><span><svg><use href="#i-doc"/></svg>Quick fixes</span></div></div>
+                  <div class="plat"><p class="plat__name">Ideas</p><div class="plat__row"><span><svg><use href="#i-bulb"/></svg>[30] Video ideas</span><span><svg><use href="#i-short"/></svg>[10] Hooks</span><span><svg><use href="#i-carousel"/></svg>[5] Formats</span></div></div>
+                  <div class="plat"><p class="plat__name">Calendar</p><div class="plat__row"><span><svg><use href="#i-cal"/></svg>30 days</span><span><svg><use href="#i-post"/></svg>Posting times</span><span><svg><use href="#i-long"/></svg>Platform mix</span></div></div>
+                </div>
+              </div>
+              <p class="demo__outcome h3">One plan covers your next 30 days of posting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2.0 WORK -->
+    <section class="section" id="work">
+      <div class="container">
+        <header class="head">
+          <p class="index"><b>2.0</b>Work</p>
+          <h2 class="h1" data-split><span class="tone-1">Recent work.</span></h2>
+        </header>
+        <div class="work" data-stagger>
+          <article class="work__item">
+            <button class="media" data-play data-video="" data-poster="./media/vertical-a.jpg" data-title="[Project name] · [Client]" aria-label="Play [Project name]">
+              <img src="./media/vertical-a.jpg" alt="" loading="lazy" />
+              <span class="media__shade"></span>
+              <span class="media__time">00:42</span>
+              <span class="media__play"><svg><use href="#i-play"/></svg></span>
+            </button>
+            <h3 class="ui-title">[Project name]</h3>
+            <p class="body-s tone-3">[Client] · Instagram Reels</p>
+          </article>
+          <article class="work__item">
+            <button class="media" data-play data-video="" data-poster="./media/vertical-b.jpg" data-title="[Project name] · [Client]" aria-label="Play [Project name]">
+              <img src="./media/vertical-b.jpg" alt="" loading="lazy" />
+              <span class="media__shade"></span>
+              <span class="media__time">00:58</span>
+              <span class="media__play"><svg><use href="#i-play"/></svg></span>
+            </button>
+            <h3 class="ui-title">[Project name]</h3>
+            <p class="body-s tone-3">[Client] · YouTube Shorts</p>
+          </article>
+          <article class="work__item">
+            <button class="media" data-play data-video="" data-poster="./media/landscape.jpg" data-title="[Project name] · [Client]" aria-label="Play [Project name]">
+              <img src="./media/landscape.jpg" alt="" loading="lazy" />
+              <span class="media__shade"></span>
+              <span class="media__time">08:24</span>
+              <span class="media__play"><svg><use href="#i-play"/></svg></span>
+            </button>
+            <h3 class="ui-title">[Project name]</h3>
+            <p class="body-s tone-3">[Client] · YouTube video</p>
+          </article>
+          <article class="work__item">
+            <button class="media" data-play data-video="" data-poster="./media/square.jpg" data-title="[Project name] · [Client]" aria-label="Play [Project name]">
+              <img src="./media/square.jpg" alt="" loading="lazy" />
+              <span class="media__shade"></span>
+              <span class="media__time">00:30</span>
+              <span class="media__play"><svg><use href="#i-play"/></svg></span>
+            </button>
+            <h3 class="ui-title">[Project name]</h3>
+            <p class="body-s tone-3">[Client] · Product launch</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.0 HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <header class="head">
+          <p class="index"><b>3.0</b>How it works</p>
+          <h2 class="h1" data-split><span class="tone-1">How it works.</span> <span class="tone-3">Four simple steps.</span></h2>
+        </header>
+        <ol class="steps" data-steps>
+          <li class="step"><span class="mono-label tone-3">01</span><h3 class="h3">Free call</h3><p class="body-m tone-3">We learn about your business, your audience and your goals.</p><span class="step__bar" aria-hidden="true"></span></li>
+          <li class="step"><span class="mono-label tone-3">02</span><h3 class="h3">Monthly plan</h3><p class="body-m tone-3">We send you a plan of what to post. You approve it.</p><span class="step__bar" aria-hidden="true"></span></li>
+          <li class="step"><span class="mono-label tone-3">03</span><h3 class="h3">We create</h3><p class="body-m tone-3">We film, or use your footage, then edit every piece.</p><span class="step__bar" aria-hidden="true"></span></li>
+          <li class="step"><span class="mono-label tone-3">04</span><h3 class="h3">We post and report</h3><p class="body-m tone-3">We publish on your channels and show you what worked.</p><span class="step__bar" aria-hidden="true"></span></li>
+        </ol>
+        <p class="body-m tone-2 steps__note" data-fade>Already have footage? We start at step 3.</p>
+      </div>
+    </section>
+
+    <!-- 4.0 WHAT MAKES A VIDEO WORK -->
+    <section class="section" id="process">
+      <div class="container">
+        <header class="head">
+          <p class="index"><b>4.0</b>What makes a video work</p>
+          <h2 class="h1" data-split><span class="tone-1">A great video isn't luck.</span> <span class="tone-3">It’s a process.</span></h2>
+          <p class="body-l tone-2" data-fade>We take care of all of it, so every video has a real chance to perform.</p>
+        </header>
+      </div>
+      <div class="container feature-wrap">
+        <button class="feature" data-feature data-play data-video="" data-poster="./media/landscape.jpg" data-title="[Client] · YouTube" aria-label="Play the example video">
+          <span class="feature__media"><img src="./media/landscape.jpg" alt="" loading="lazy" data-feature-img /></span>
+          <span class="feature__shade"></span>
+          <span class="feature__play"><svg><use href="#i-play"/></svg></span>
+          <span class="feature__time" data-feature-time>00:14 / 00:42</span>
+          <span class="feature__label">[Client] · YouTube</span>
+          <span class="feature__track"><span data-feature-progress></span></span>
+        </button>
+      </div>
+      <div class="container">
+        <div class="ba">
+          <div class="ba__group">
+            <p class="body-xs tone-3">Before filming</p>
+            <div class="ba__row">
+              <div class="ba__item"><span class="mono-label tone-flare">01</span><h3 class="h3">The hook</h3><p class="body-m tone-3">The first three seconds decide everything.</p></div>
+              <div class="ba__item"><span class="mono-label tone-flare">02</span><h3 class="h3">The angle</h3><p class="body-m tone-3">One clear idea per video.</p></div>
+            </div>
+          </div>
+          <div class="ba__group">
+            <p class="body-xs tone-3">After filming</p>
+            <div class="ba__row">
+              <div class="ba__item"><span class="mono-label tone-flare">03</span><h3 class="h3">The edit</h3><p class="body-m tone-3">Tight cuts, captions, no dead air.</p></div>
+              <div class="ba__item"><span class="mono-label tone-flare">04</span><h3 class="h3">The timing</h3><p class="body-m tone-3">Posted when your audience is online.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.0 TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <header class="head">
+          <p class="index"><b>5.0</b>Testimonials</p>
+          <h2 class="h1" data-split><span class="tone-1">What clients say.</span> <span class="tone-3">In their own words.</span></h2>
+        </header>
+        <div class="quotes" data-stagger>
+          <button class="quote" data-play data-video="" data-poster="./media/vertical-a.jpg" data-title="[Client name], [Founder, Company]" aria-label="Play testimonial from [Client name]">
+            <img src="./media/vertical-a.jpg" alt="" loading="lazy" />
+            <span class="quote__shade"></span>
+            <span class="quote__dur"><svg><use href="#i-play"/></svg>1:12</span>
+            <span class="quote__play"><svg><use href="#i-play"/></svg></span>
+            <span class="quote__body">
+              <span class="quote__text">“[Short quote about what changed after working with Matte.]”</span>
+              <span class="quote__rule"></span>
+              <span class="quote__who"><b>[Client name]</b><small>[Founder, Company]</small></span>
+            </span>
+          </button>
+          <button class="quote" data-play data-video="" data-poster="./media/vertical-b.jpg" data-title="[Client name], [Marketing lead, Company]" aria-label="Play testimonial from [Client name]">
+            <img src="./media/vertical-b.jpg" alt="" loading="lazy" />
+            <span class="quote__shade"></span>
+            <span class="quote__dur"><svg><use href="#i-play"/></svg>0:48</span>
+            <span class="quote__play"><svg><use href="#i-play"/></svg></span>
+            <span class="quote__body">
+              <span class="quote__text">“[Short quote about results: reach, leads or sales.]”</span>
+              <span class="quote__rule"></span>
+              <span class="quote__who"><b>[Client name]</b><small>[Marketing lead, Company]</small></span>
+            </span>
+          </button>
+          <button class="quote" data-play data-video="" data-poster="./media/square.jpg" data-title="[Client name], [Creator, Channel]" aria-label="Play testimonial from [Client name]">
+            <img src="./media/square.jpg" alt="" loading="lazy" />
+            <span class="quote__shade"></span>
+            <span class="quote__dur"><svg><use href="#i-play"/></svg>1:05</span>
+            <span class="quote__play"><svg><use href="#i-play"/></svg></span>
+            <span class="quote__body">
+              <span class="quote__text">“[Short quote about how easy the process was.]”</span>
+              <span class="quote__rule"></span>
+              <span class="quote__who"><b>[Client name]</b><small>[Creator, Channel]</small></span>
+            </span>
+          </button>
+        </div>
+        <p class="body-xs tone-4 quotes__note">Placeholder quotes and footage. Replace with real, approved client videos.</p>
+      </div>
+    </section>
+
+    <!-- 6.0 PRICING -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <header class="head head--row">
+          <div>
+            <p class="index"><b>6.0</b>Pricing</p>
+            <h2 class="h1" data-split><span class="tone-1">Simple pricing.</span> <span class="tone-3">Pick what you need.</span></h2>
+          </div>
+          <div class="seg seg--sm" role="radiogroup" aria-label="Billing" data-seg="billing">
+            <span class="seg__thumb" aria-hidden="true"></span>
+            <button class="seg__item is-active" role="radio" aria-checked="true" data-billing="monthly">Monthly</button>
+            <button class="seg__item" role="radio" aria-checked="false" data-billing="quarterly" tabindex="-1">Every 3 months <small>Save [10]%</small></button>
+          </div>
+        </header>
+        <div class="plans" data-stagger>
+          <article class="plan">
+            <h3 class="h3">Editing &amp; Posting</h3>
+            <p class="plan__price"><span class="price" data-monthly="[00,000]" data-quarterly="[00,000]">₹[00,000]</span><span class="plan__per" data-per-monthly="/ month" data-per-quarterly="/ month, billed every 3 months">/ month</span></p>
+            <p class="body-m tone-2">For when you already have footage.</p>
+            <button class="btn btn--ghost btn--block" data-book data-service="Editing &amp; Posting">Choose Editing &amp; Posting</button>
+            <ul class="plan__list">
+              <li><svg><use href="#i-check"/></svg>[12] short videos edited</li>
+              <li><svg><use href="#i-check"/></svg>[4] carousel posts designed</li>
+              <li><svg><use href="#i-check"/></svg>Captions and thumbnails</li>
+              <li><svg><use href="#i-check"/></svg>Posted on Instagram, YouTube and LinkedIn</li>
+            </ul>
+          </article>
+          <article class="plan plan--rec">
+            <span class="plan__glow" aria-hidden="true"></span>
+            <h3 class="h3">Complete Content <span class="tag">Recommended</span></h3>
+            <p class="plan__price"><span class="price" data-monthly="[00,000]" data-quarterly="[00,000]">₹[00,000]</span><span class="plan__per" data-per-monthly="/ month" data-per-quarterly="/ month, billed every 3 months">/ month</span></p>
+            <p class="body-m tone-2">We handle everything, from idea to posting.</p>
+            <button class="btn btn--primary btn--block" data-book data-service="Complete Content">Book a free call</button>
+            <ul class="plan__list">
+              <li><svg><use href="#i-check"/></svg>Monthly content plan</li>
+              <li><svg><use href="#i-check"/></svg>Filming handled by us</li>
+              <li><svg><use href="#i-check"/></svg>[18] videos edited</li>
+              <li><svg><use href="#i-check"/></svg>Posted on all 3 platforms</li>
+            </ul>
+          </article>
+          <article class="plan">
+            <h3 class="h3">Content Plan</h3>
+            <p class="plan__price"><span class="price" data-monthly="[00,000]" data-quarterly="[00,000]" data-fixed>₹[00,000]</span><span class="plan__per">one-time</span></p>
+            <p class="body-m tone-2">A clear plan you can follow on your own.</p>
+            <button class="btn btn--ghost btn--block" data-book data-service="Content Plan">Get a Content Plan</button>
+            <ul class="plan__list">
+              <li><svg><use href="#i-check"/></svg>Review of your current content</li>
+              <li><svg><use href="#i-check"/></svg>Content topics for your brand</li>
+              <li><svg><use href="#i-check"/></svg>[30] video ideas</li>
+              <li><svg><use href="#i-check"/></svg>30-day posting calendar</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7.0 FREE REEL REVIEW -->
+    <section class="section" id="review">
+      <div class="container review">
+        <div class="review__copy">
+          <p class="index"><b>7.0</b>Free reel audit</p>
+          <h2 class="h1" data-split><span class="tone-1">Not sure what’s working?</span> <span class="tone-3">Get one reel reviewed, free.</span></h2>
+          <p class="body-l tone-3" data-fade>Send us one reel. Within [48] hours we’ll tell you what works, what doesn’t, and how to fix it.</p>
+        </div>
+        <div class="card-form" data-fade>
+          <form class="form" data-form="review" novalidate>
+            <div class="form__head">
+              <h3 class="h3">Send us your reel</h3>
+              <p class="body-s tone-3">We’ll reply within [48] hours with clear, practical notes.</p>
+            </div>
+            <hr />
+            <label class="field">
+              <span>Reel link</span>
+              <input type="url" name="reel" placeholder="instagram.com/reel/…" required autocomplete="url" inputmode="url" />
+              <em class="field__err" aria-live="polite"></em>
+            </label>
+            <label class="field">
+              <span>Your email</span>
+              <input type="email" name="email" placeholder="you@company.com" required autocomplete="email" />
+              <em class="field__err" aria-live="polite"></em>
+            </label>
+            <input type="text" name="company_website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button class="btn btn--primary btn--block" type="submit"><span class="btn__label">Send my reel for review</span><span class="spinner" aria-hidden="true"></span></button>
+            <p class="body-xs tone-4 form__foot">Free. No sign-up needed.</p>
+          </form>
+          <div class="form-done" hidden>
+            <span class="form-done__icon"><svg><use href="#i-check"/></svg></span>
+            <h3 class="h3">Got it. Thanks!</h3>
+            <p class="body-s tone-3">We’ll email your notes within [48] hours.</p>
+            <button class="btn btn--ghost btn--sm" data-form-reset>Send another reel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8.0 FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq">
+        <div class="faq__head">
+          <p class="index"><b>8.0</b>FAQ</p>
+          <h2 class="h1" data-split><span class="tone-1">Questions.</span></h2>
+        </div>
+        <div class="faq__list" data-faq>
+          <div class="qa is-open">
+            <h3><button class="qa__q" aria-expanded="true" aria-controls="qa1" id="q1">Can I send just footage?<svg viewBox="0 0 18 18" aria-hidden="true"><path class="v" d="M9 3v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></h3>
+            <div class="qa__a" id="qa1" role="region" aria-labelledby="q1"><p>Yes. Send raw footage and a concept. We edit, package and publish.</p></div>
+          </div>
+          <div class="qa">
+            <h3><button class="qa__q" aria-expanded="false" aria-controls="qa2" id="q2">How long do I need to sign up for?<svg viewBox="0 0 18 18" aria-hidden="true"><path class="v" d="M9 3v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></h3>
+            <div class="qa__a" id="qa2" role="region" aria-labelledby="q2" hidden><p>Plans are month to month. You can stop any time with [30] days’ notice. Paying every 3 months saves [10]%.</p></div>
+          </div>
+          <div class="qa">
+            <h3><button class="qa__q" aria-expanded="false" aria-controls="qa3" id="q3">How quickly will I get my videos?<svg viewBox="0 0 18 18" aria-hidden="true"><path class="v" d="M9 3v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></h3>
+            <div class="qa__a" id="qa3" role="region" aria-labelledby="q3" hidden><p>Your first videos are ready within [7] days of filming or receiving your footage. After that, we deliver on the schedule in your monthly plan.</p></div>
+          </div>
+          <div class="qa">
+            <h3><button class="qa__q" aria-expanded="false" aria-controls="qa4" id="q4">Do you shoot on location?<svg viewBox="0 0 18 18" aria-hidden="true"><path class="v" d="M9 3v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></h3>
+            <div class="qa__a" id="qa4" role="region" aria-labelledby="q4" hidden><p>Yes. We can film at your office, shop or studio in [City]. If you’d rather film yourself, send us the footage and we’ll handle the rest.</p></div>
+          </div>
+          <div class="qa">
+            <h3><button class="qa__q" aria-expanded="false" aria-controls="qa5" id="q5">Who owns the content?<svg viewBox="0 0 18 18" aria-hidden="true"><path class="v" d="M9 3v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></h3>
+            <div class="qa__a" id="qa5" role="region" aria-labelledby="q5" hidden><p>You do. Once it’s paid for, every video and file is yours to use anywhere.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="closing" id="contact">
+      <div class="closing__panel grain">
+        <div class="closing__light" aria-hidden="true"></div>
+        <div class="closing__glow" aria-hidden="true" data-drift></div>
+        <h2 class="display-l" data-split><span class="tone-1">Ready when you are.</span><br /><span class="tone-3">Let’s talk about your content.</span></h2>
+        <div class="ctas" data-fade>
+          <button class="btn btn--primary" data-book>Book a free call</button>
+          <a class="btn btn--ghost" href="#review">Get a free reel review</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#top" class="logo" aria-label="Matte Studio"><svg viewBox="0 0 133 18" width="132" height="18"><use href="#wordmark"/></svg></a>
+          <p class="body-m tone-3">From idea to feed.</p>
+        </div>
+        <div class="footer__cols">
+          <div><p class="mono-label tone-4">Studio</p><a href="#services">Services</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#review">Free reel audit</a></div>
+          <div><p class="mono-label tone-4">Contact</p><a href="mailto:hello@matte.studio" data-email>hello@[matte.studio]</a><a href="#" data-book>Book a call</a></div>
+          <div><p class="mono-label tone-4">Follow</p><a href="#" data-social="instagram" target="_blank" rel="noopener">Instagram</a><a href="#" data-social="linkedin" target="_blank" rel="noopener">LinkedIn</a><a href="#" data-social="youtube" target="_blank" rel="noopener">YouTube</a></div>
+        </div>
+      </div>
+      <div class="footer__bottom mono-label tone-3"><span>© <span data-year>2026</span> Matte Studio</span><span>Made in [City]</span></div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu -->
+  <div class="menu" data-menu hidden>
+    <div class="menu__top">
+      <a href="#top" class="logo" aria-label="Matte Studio" data-menu-link><svg viewBox="0 0 133 18" width="114" height="16"><use href="#wordmark"/></svg></a>
+      <button class="icon-btn" aria-label="Close menu" data-menu-close><svg><use href="#i-close"/></svg></button>
+    </div>
+    <nav class="menu__links" aria-label="Mobile">
+      <a href="#services" data-menu-link>Services</a><a href="#work" data-menu-link>Work</a><a href="#how" data-menu-link>How it works</a><a href="#pricing" data-menu-link>Pricing</a><a href="#faq" data-menu-link>FAQ</a>
+    </nav>
+    <button class="btn btn--primary btn--block" data-book>Book a free call</button>
+  </div>
+
+  <!-- Book a call dialog -->
+  <dialog class="modal" data-modal="book" aria-labelledby="book-title">
+    <div class="modal__card">
+      <button class="icon-btn modal__close" aria-label="Close" data-close><svg><use href="#i-close"/></svg></button>
+      <form class="form" data-form="book" novalidate>
+        <div class="form__head">
+          <p class="mono-label tone-3">Free · 20 minutes</p>
+          <h3 class="h2" id="book-title">Book a free call</h3>
+          <p class="body-s tone-3">Tell us a little about you. We’ll reply within one working day with a time.</p>
+        </div>
+        <fieldset class="choices">
+          <legend class="body-s tone-2">What do you need?</legend>
+          <label><input type="radio" name="service" value="Complete Content" checked /><span>Complete Content</span></label>
+          <label><input type="radio" name="service" value="Editing & Posting" /><span>Editing &amp; Posting</span></label>
+          <label><input type="radio" name="service" value="Content Plan" /><span>Content Plan</span></label>
+          <label><input type="radio" name="service" value="Not sure yet" /><span>Not sure yet</span></label>
+        </fieldset>
+        <div class="field-row">
+          <label class="field"><span>Your name</span><input type="text" name="name" placeholder="Your name" required autocomplete="name" /><em class="field__err" aria-live="polite"></em></label>
+          <label class="field"><span>Email</span><input type="email" name="email" placeholder="you@company.com" required autocomplete="email" /><em class="field__err" aria-live="polite"></em></label>
+        </div>
+        <label class="field"><span>Brand or website <i class="tone-4">(optional)</i></span><input type="text" name="brand" placeholder="yourbrand.com" /></label>
+        <label class="field"><span>Anything we should know? <i class="tone-4">(optional)</i></span><textarea name="message" rows="3" placeholder="Goals, timeline, platforms…"></textarea></label>
+        <input type="text" name="company_website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn btn--primary btn--block" type="submit"><span class="btn__label">Request a call</span><span class="spinner" aria-hidden="true"></span></button>
+      </form>
+      <div class="form-done" hidden>
+        <span class="form-done__icon"><svg><use href="#i-check"/></svg></span>
+        <h3 class="h3">Thanks, we’ll be in touch.</h3>
+        <p class="body-s tone-3">Expect an email within one working day.</p>
+        <button class="btn btn--ghost btn--sm" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Video player dialog -->
+  <dialog class="modal modal--player" data-modal="player" aria-label="Video">
+    <div class="player">
+      <button class="icon-btn modal__close" aria-label="Close video" data-close><svg><use href="#i-close"/></svg></button>
+      <div class="player__stage" data-player-stage></div>
+      <p class="player__title body-s tone-2" data-player-title></p>
+    </div>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
