@@ -159,6 +159,15 @@ function reveals() {
   $$('.index').forEach((el) => gsap.from(el, { opacity: 0, x: -12, duration: 1, ease: EASE, scrollTrigger: { trigger: el, start: 'top 88%' } }));
   $$('[data-fade]').forEach((el) => gsap.from(el, { opacity: 0, y: 24, duration: 1.2, ease: EASE, scrollTrigger: { trigger: el, start: 'top 88%' } }));
   $$('[data-stagger]').forEach((el) => gsap.from(el.children, { opacity: 0, y: 40, duration: 1.3, ease: EASE, stagger: 0.08, scrollTrigger: { trigger: el, start: 'top 85%' } }));
+  // We make: format frames rise one by one, then their labels
+  const shelf = $('[data-shelf]');
+  if (shelf) {
+    const fmts = $$('.fmt', shelf);
+    const tl = gsap.timeline({ scrollTrigger: { trigger: shelf, start: 'top 90%' } });
+    tl.from(fmts.map((f) => $('.fmt__vis', f)), { y: 48, opacity: 0, rotateX: 25, transformPerspective: 600, duration: 1.2, ease: EASE, stagger: 0.08 })
+      .from(fmts.map((f) => [...f.querySelectorAll('b, small')]), { y: 12, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.04 }, 0.25);
+    gsap.to($$('.wave i', shelf), { scaleY: () => gsap.utils.random(0.35, 1.25), duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: -1, repeatRefresh: true, stagger: { each: 0.05, from: 'random' } });
+  }
   $$('#services .seg, #services .panel__lead').forEach((el) => gsap.from(el, { opacity: 0, y: 20, duration: 1.1, ease: EASE, scrollTrigger: { trigger: el, start: 'top 88%' } }));
 
   // services demo (first visible panel)
