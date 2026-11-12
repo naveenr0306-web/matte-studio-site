@@ -33,11 +33,11 @@ The prices are placeholders, `[00,000]`. Put plain numbers in `data-monthly` (fo
 
 ## Forms
 
-The forms post to the Cloudflare Pages Functions in `functions/api/`:
+The forms post to `/api/review` and `/api/contact`. These are handled by `worker/index.js` (and by `functions/api/` if you use Pages instead):
 - `review.js` — free reel review
 - `contact.js` — book a call
 
-Emails are sent through [Resend](https://resend.com). Add these variables in Cloudflare Pages → Settings → Variables and Secrets:
+Emails are sent through [Resend](https://resend.com). Add these variables in Cloudflare → your Worker → Settings → Variables and Secrets:
 
 - `RESEND_API_KEY`
 - `TO_EMAIL` — where you want submissions to arrive
@@ -45,13 +45,15 @@ Emails are sent through [Resend](https://resend.com). Add these variables in Clo
 
 If `bookingUrl` is set in `src/config.js` (Cal.com or Calendly), "Book a free call" opens that page instead of the built-in form.
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers)
 
-1. Push this repository to GitHub.
-2. In Cloudflare: Workers & Pages → Create → Pages → Connect to Git, then pick the repository.
-3. Use these settings:
-   - Framework preset: **None**
+The site is deployed as a Cloudflare Worker, set up in `wrangler.jsonc`. The Worker serves the built files from `dist/`, and `worker/index.js` handles the two form endpoints.
+
+1. Connect the GitHub repository in Cloudflare: Workers & Pages → Create → Import a repository.
+2. Use these settings:
    - Build command: `npm run build`
-   - Output directory: `dist`
-4. Add the form variables listed above, then deploy.
-5. To use your own domain, open Custom domains → add `yourdomain.com` and `www.yourdomain.com`.
+   - Deploy command: `npx wrangler deploy`
+3. Add the form variables listed above under Settings → Variables and Secrets.
+4. To use your own domain, open Settings → Domains & Routes → Add → Custom domain.
+
+`functions/` is kept so the site also works if you move it to Cloudflare Pages later.
