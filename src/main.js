@@ -412,17 +412,40 @@ function setError(input, msg) {
   $('.field__err', field).textContent = msg || '';
   input.setAttribute('aria-invalid', msg ? 'true' : 'false');
 }
+const MAX_MB = 25;
+const check = (input) => validators[input.name]?.(input.value.trim(), input) || '';
 const validators = {
   email: (v) => (!v ? 'Please add your email.' : /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'That email doesn’t look right.'),
-  reel: (v) => {
-    if (!v) return 'Please paste a link to your reel.';
-    const url = /^https?:\/\//i.test(v) ? v : `https://${v}`;
-    try { const u = new URL(url); return /(instagram\.com|youtube\.com|youtu\.be|tiktok\.com|linkedin\.com|facebook\.com|drive\.google\.com|vimeo\.com)/i.test(u.hostname) ? '' : 'Use an Instagram, YouTube, TikTok, LinkedIn or Drive link.'; } catch { return 'That link doesn’t look right.'; }
+  reel: (_, input) => {
+    const f = input.files?.[0];
+    if (!f) return 'Please upload your reel.';
+    if (!/^video\//.test(f.type) && !/\.(mp4|mov|webm)$/i.test(f.name)) return 'Please upload a video file (MP4 or MOV).';
+    if (f.size > MAX_MB * 1024 * 1024) return `That file is ${(f.size / 1048576).toFixed(0)} MB. Please keep it under ${MAX_MB} MB.`;
+    return '';
   },
   name: (v) => (v.trim().length < 2 ? 'Please add your name.' : ''),
 };
+function setupDrop() {
+  $$('[data-drop]').forEach((drop) => {
+    const input = $('input[type="file"]', drop);
+    const show = () => {
+      const f = input.files?.[0];
+      $('.drop__empty', drop).hidden = !!f; $('.drop__file', drop).hidden = !f;
+      drop.classList.toggle('has-file', !!f);
+      if (f) { $('[data-file-name]', drop).textContent = f.name; $('[data-file-size]', drop).textContent = `${(f.size / 1048576).toFixed(1)} MB`; }
+      setError(input, f ? check(input) : '');
+    };
+    input.addEventListener('change', show);
+    ['dragenter', 'dragover'].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.add('is-over'); }));
+    ['dragleave', 'drop'].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.remove('is-over'); }));
+    drop.addEventListener('drop', (e) => { if (e.dataTransfer?.files?.length) { input.files = e.dataTransfer.files; show(); } });
+    $('[data-file-remove]', drop).addEventListener('click', (e) => { e.preventDefault(); input.value = ''; show(); });
+    drop._show = show;
+  });
+}
 function resetForm(form) {
   form.reset(); form.hidden = false;
+  $$('[data-drop]', form).forEach((d) => d._show?.());
   const done = form.parentElement.querySelector('.form-done'); if (done) done.hidden = true;
   $$('input', form).forEach((i) => i.closest('.field') && setError(i, ''));
 }
@@ -430,21 +453,24 @@ function setupForms() {
   $$('form[data-form]').forEach((form) => {
     const kind = form.dataset.form;
     $$('input[required]', form).forEach((input) => {
-      input.addEventListener('blur', () => { if (input.value) setError(input, validators[input.name]?.(input.value.trim()) || ''); });
-      input.addEventListener('input', () => { if (input.closest('.field').classList.contains('has-error')) setError(input, validators[input.name]?.(input.value.trim()) || ''); });
+      input.addEventListener('blur', () => { if (input.value && input.type !== 'file') setError(input, check(input)); });
+      input.addEventListener('input', () => { if (input.closest('.field').classList.contains('has-error')) setError(input, check(input)); });
     });
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       let firstBad = null;
-      $$('input[required]', form).forEach((input) => { const msg = validators[input.name]?.(input.value.trim()) || ''; setError(input, msg); if (msg && !firstBad) firstBad = input; });
-      if (firstBad) { firstBad.focus(); if (!reduce) gsap.fromTo(firstBad, { x: -6 }, { x: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' }); return; }
+      $$('input[required]', form).forEach((input) => { const msg = check(input); setError(input, msg); if (msg && !firstBad) firstBad = input; });
+      if (firstBad) { firstBad.focus(); if (!reduce) gsap.fromTo(firstBad.type === 'file' ? firstBad.closest('.drop') : firstBad, { x: -6 }, { x: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' }); return; }
       const data = Object.fromEntries(new FormData(form).entries());
       if (data.company_website) return; // bot
       const btn = $('button[type="submit"]', form);
       btn.classList.add('is-loading'); btn.disabled = true;
       let ok = false;
       try {
-        const res = await fetch(CONFIG.forms[kind], { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...data, page: location.href }) });
+        const hasFile = !!form.querySelector('input[type="file"]');
+        let res;
+        if (hasFile) { const fd = new FormData(form); fd.append('page', location.href); res = await fetch(CONFIG.forms[kind], { method: 'POST', body: fd }); }
+        else res = await fetch(CONFIG.forms[kind], { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...data, page: location.href }) });
         ok = res.ok;
       } catch { ok = false; }
       btn.classList.remove('is-loading'); btn.disabled = false;
@@ -489,6 +515,7 @@ services();
 pricing();
 faq();
 setupMedia();
+setupDrop();
 setupForms();
 window.addEventListener('load', () => ScrollTrigger.refresh());
 if (location.hash && $(location.hash)) setTimeout(() => scrollToTarget(location.hash), 300);

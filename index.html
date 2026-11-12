@@ -444,20 +444,32 @@
         <div class="review__copy">
           <p class="index"><b>7.0</b>Free reel audit</p>
           <h2 class="h1" data-split><span class="tone-1">Not sure what’s working?</span> <span class="tone-3">Get one reel reviewed, free.</span></h2>
-          <p class="body-l tone-3" data-fade>Send us one reel. Within [48] hours we’ll tell you what works, what doesn’t, and how to fix it.</p>
+          <p class="body-l tone-3" data-fade>Upload one reel. In under 5 minutes, we’ll tell you what works, what doesn’t, and how to fix it.</p>
         </div>
         <div class="card-form" data-fade>
           <form class="form" data-form="review" novalidate>
             <div class="form__head">
               <h3 class="h3">Send us your reel</h3>
-              <p class="body-s tone-3">We’ll reply within [48] hours with clear, practical notes.</p>
+              <p class="body-s tone-3">You’ll get clear, practical notes by email in under 5 minutes.</p>
             </div>
             <hr />
-            <label class="field">
-              <span>Reel link</span>
-              <input type="url" name="reel" placeholder="instagram.com/reel/…" required autocomplete="url" inputmode="url" />
+            <div class="field">
+              <span id="reel-label">Your reel</span>
+              <label class="drop" data-drop>
+                <input type="file" name="reel" accept="video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm" required aria-labelledby="reel-label" />
+                <span class="drop__empty">
+                  <svg class="drop__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 15v3a2 2 0 002 2h10a2 2 0 002-2v-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <b>Upload a video</b> <span class="tone-3">or drag it here</span>
+                  <small>MP4 or MOV · up to 25 MB · under 3 minutes</small>
+                </span>
+                <span class="drop__file" hidden>
+                  <svg class="drop__icon" viewBox="0 0 20 16" aria-hidden="true"><use href="#i-short"/></svg>
+                  <span class="drop__meta"><b data-file-name></b><small data-file-size></small></span>
+                  <button type="button" class="drop__remove" data-file-remove aria-label="Remove video"><svg><use href="#i-close"/></svg></button>
+                </span>
+              </label>
               <em class="field__err" aria-live="polite"></em>
-            </label>
+            </div>
             <label class="field">
               <span>Your email</span>
               <input type="email" name="email" placeholder="you@company.com" required autocomplete="email" />
@@ -470,7 +482,7 @@
           <div class="form-done" hidden>
             <span class="form-done__icon"><svg><use href="#i-check"/></svg></span>
             <h3 class="h3">Got it. Thanks!</h3>
-            <p class="body-s tone-3">We’ll email your notes within [48] hours.</p>
+            <p class="body-s tone-3">Check your inbox. Your notes will arrive in under 5 minutes.</p>
             <button class="btn btn--ghost btn--sm" data-form-reset>Send another reel</button>
           </div>
         </div>
@@ -541,7 +553,7 @@
   </footer>
 
   <!-- Mobile menu -->
-  <div class="menu" data-menu hidden>
+  <div class="menu" data-menu data-lenis-prevent hidden>
     <div class="menu__top">
       <a href="#top" class="logo" aria-label="Matte Studio" data-menu-link><svg viewBox="0 0 133 18" width="114" height="16"><use href="#wordmark"/></svg></a>
       <button class="icon-btn" aria-label="Close menu" data-menu-close><svg><use href="#i-close"/></svg></button>
@@ -556,7 +568,7 @@
 
   <!-- Book a call dialog -->
   <dialog class="modal" data-modal="book" aria-labelledby="book-title">
-    <div class="modal__card">
+    <div class="modal__card" data-lenis-prevent>
       <button class="icon-btn modal__close" aria-label="Close" data-close><svg><use href="#i-close"/></svg></button>
       <form class="form" data-form="book" novalidate>
         <div class="form__head">

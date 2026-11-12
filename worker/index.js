@@ -1,5 +1,5 @@
 // Cloudflare Worker entry: serves the built site from ./dist and handles the two form endpoints.
-import { handleForm } from '../lib/send.js';
+import { handleForm, handleReview } from '../lib/send.js';
 
 const forms = {
   '/api/review': {
@@ -20,7 +20,7 @@ export default {
     const form = forms[pathname];
     if (form) {
       if (request.method !== 'POST') return new Response('Method not allowed', { status: 405, headers: { Allow: 'POST' } });
-      return handleForm({ request, env }, form);
+      return pathname === '/api/review' ? handleReview({ request, env }) : handleForm({ request, env }, form);
     }
     return env.ASSETS.fetch(request);
   },
