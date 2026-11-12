@@ -85,48 +85,29 @@ function intro() {
     .from('[data-intro="chip"]', { y: 12, opacity: 0, duration: 1 }, 0.15)
     .from('[data-intro="line"]', { yPercent: 110, duration: 1.4, stagger: 0.1 }, 0.2)
     .from('[data-intro="fade"]', { y: 18, opacity: 0, duration: 1.2, stagger: 0.1 }, 0.55)
-    .from('[data-reel]', { y: 80, opacity: 0, rotateX: 18, duration: 1.6, stagger: { each: 0.12, from: 'center' } }, 0.35)
     .from('.hero__glow', { opacity: 0, scale: 0.7, duration: 2.4, ease: 'power2.out' }, 0);
 }
 
-/* ---------------------------------------------------------------- hero reels */
-function reels() {
-  const items = $$('[data-reel]');
-  items.forEach((reel, i) => {
-    const src = reel.dataset.video;
-    if (src) {
-      const v = Object.assign(document.createElement('video'), { src, muted: true, loop: true, playsInline: true, autoplay: true, className: 'reel__media' });
-      v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-      reel.querySelector('img')?.replaceWith(v);
-    }
-    const bar = reel.querySelector('[data-progress]');
-    if (!reduce && bar) {
-      gsap.fromTo(bar, { scaleX: 0 }, { scaleX: 2.2, duration: 9 + i * 2, ease: 'none', repeat: -1, delay: -i * 3 });
-    }
-  });
+/* ---------------------------------------------------------------- hero */
+function hero() {
   if (reduce) return;
-  // gentle idle float
-  items.forEach((reel, i) => {
-    gsap.to(reel, { y: i === 1 ? -8 : 8, duration: 3.2 + i * 0.4, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.8 + i * 0.3 });
-  });
-  // pointer parallax
-  const wrap = $('[data-reels]');
+  // slow ambient drift on the glows
+  $$('[data-drift]').forEach((g, i) => gsap.to(g, { xPercent: i ? -8 : 6, yPercent: i ? 6 : -10, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: -1 }));
+  // the ember glow leans gently towards the pointer
   const panel = $('.hero__panel');
-  if (finePointer && wrap) {
-    const setters = items.map((r) => ({ rx: gsap.quickTo(r, 'rotationX', { duration: 1, ease: 'power3' }), ry: gsap.quickTo(r, 'rotationY', { duration: 1, ease: 'power3' }), x: gsap.quickTo(r, 'x', { duration: 1.2, ease: 'power3' }) }));
+  const glow = $('.hero__glow');
+  if (finePointer && panel && glow) {
+    const gx = gsap.quickTo(glow, 'x', { duration: 2.4, ease: 'power3' });
+    const gy = gsap.quickTo(glow, 'y', { duration: 2.4, ease: 'power3' });
     panel.addEventListener('pointermove', (e) => {
       const b = panel.getBoundingClientRect();
-      const nx = (e.clientX - b.left) / b.width - 0.5;
-      const ny = (e.clientY - b.top) / b.height - 0.5;
-      setters.forEach((s, i) => { const depth = i === 1 ? 1 : 0.65; s.ry(nx * 10 * depth); s.rx(-ny * 8 * depth); s.x(nx * (i - 1) * 14); });
+      gx(((e.clientX - b.left) / b.width - 0.5) * 160);
+      gy(((e.clientY - b.top) / b.height - 0.5) * 100);
     });
-    panel.addEventListener('pointerleave', () => setters.forEach((s) => { s.rx(0); s.ry(0); s.x(0); }));
+    panel.addEventListener('pointerleave', () => { gx(0); gy(0); });
   }
-  // drift glows
-  $$('[data-drift]').forEach((g, i) => gsap.to(g, { xPercent: i ? -8 : 6, yPercent: i ? 6 : -10, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: -1 }));
-  // hero exit parallax
-  gsap.to('.reels', { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
-  gsap.to('.hero__copy', { yPercent: -18, opacity: 0.4, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  // hero text eases up and fades slightly as you scroll away
+  gsap.to('.hero__center', { yPercent: -10, opacity: 0.35, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
 }
 
 /* ---------------------------------------------------------------- sticky bar */
@@ -500,7 +481,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(
 
 /* ---------------------------------------------------------------- go */
 intro();
-reels();
+hero();
 stickyBar();
 reveals();
 services();
