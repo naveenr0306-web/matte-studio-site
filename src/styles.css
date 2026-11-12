@@ -129,7 +129,7 @@ svg { width: 1em; height: 1em; flex: none; }
 .ctas { display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* ---------- Sticky bar ---------- */
-.bar { position: fixed; top: 12px; left: 50%; z-index: 50; transform: translate(-50%, -140%); width: min(1040px, calc(100% - 24px)); transition: transform .6s var(--ease); pointer-events: none; }
+.bar { position: fixed; top: 12px; left: 50%; z-index: 50; transform: translate(-50%, -140%); width: min(var(--container), calc(100% - var(--gutter) * 2)); transition: transform .6s var(--ease); pointer-events: none; }
 .bar.is-shown { transform: translate(-50%, 0); pointer-events: auto; }
 .bar__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 60px; padding: 0 10px 0 22px; border-radius: 999px; background: rgba(15,16,17,.72); border: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: 0 20px 50px -20px rgba(0,0,0,.7); }
 .bar__links { display: flex; gap: 32px; }
