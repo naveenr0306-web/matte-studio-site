@@ -468,7 +468,7 @@ const menu = $('[data-menu]');
 function openMenu() {
   menu.hidden = false; lenis?.stop();
   $('[data-menu-open]').setAttribute('aria-expanded', 'true');
-  if (!reduce) gsap.from($$('.menu__links a, .menu > .btn', menu), { y: 30, opacity: 0, duration: 0.8, ease: EASE, stagger: 0.05 });
+  if (!reduce) gsap.from($$('.menu__links a, .menu__body .btn', menu), { y: 30, opacity: 0, duration: 0.8, ease: EASE, stagger: 0.05 });
   $('[data-menu-close]').focus();
 }
 function closeMenu() {
