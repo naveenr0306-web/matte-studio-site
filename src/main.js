@@ -206,7 +206,8 @@ function moveThumb(seg, animate = true) {
   if (!thumb || !active) return;
   if (!animate) thumb.style.transition = 'none';
   thumb.style.width = `${active.offsetWidth}px`;
-  thumb.style.transform = `translateX(${active.offsetLeft}px)`;
+  thumb.style.height = `${active.offsetHeight}px`;
+  thumb.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
   if (!animate) { thumb.offsetWidth; thumb.style.transition = ''; }
 }
 function setupSeg(seg, onChange) {
@@ -221,7 +222,7 @@ function setupSeg(seg, onChange) {
     });
     if (focus) item.focus();
     moveThumb(seg);
-    item.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (seg.scrollWidth > seg.clientWidth) seg.scrollTo({ left: item.offsetLeft - (seg.clientWidth - item.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
     onChange(item, items.indexOf(item));
   };
   items.forEach((b) => b.addEventListener('click', () => select(b)));
@@ -242,8 +243,8 @@ function animatePanel(panel, withContainer = true) {
   tl.from($$('.demo__in > *', panel), { opacity: 0, y: 18, duration: 0.9, stagger: 0.06 }, withContainer ? 0.05 : 0)
     .from($$('.brief__line, .clips li', panel), { scaleX: 0, opacity: 0, duration: 0.9, stagger: 0.06, transformOrigin: 'left' }, 0.3)
     .from($('.demo__arrow span', panel), { scale: 0.4, opacity: 0, duration: 0.8 }, 0.25)
-    .from($$('.demo__out > *', panel), { opacity: 0, x: 24, duration: 1, stagger: 0.08 }, 0.3)
-    .from($$('.plat__row span', panel), { opacity: 0, y: 8, duration: 0.7, stagger: 0.03 }, 0.5)
+    .from($$('.demo__out > *', panel), { opacity: 0, x: 24, duration: 1, stagger: 0.08, clearProps: 'transform' }, 0.3)
+    .from($$('.plat__row span', panel), { opacity: 0, y: 8, duration: 0.7, stagger: 0.03, clearProps: 'transform' }, 0.5)
     .from($('.demo__outcome', panel), { opacity: 0, y: 12, duration: 0.9 }, 0.7);
   return tl;
 }

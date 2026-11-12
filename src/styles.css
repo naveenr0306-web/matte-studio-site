@@ -167,7 +167,7 @@ svg { width: 1em; height: 1em; flex: none; }
 /* ---------- Segmented control ---------- */
 .seg { position: relative; display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 .seg::-webkit-scrollbar { display: none; }
-.seg__thumb { position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 999px; background: var(--raised); border: 1px solid var(--border-strong); transition: transform .5s var(--ease), width .5s var(--ease); z-index: 0; }
+.seg__thumb { position: absolute; top: 0; left: 0; width: 0; height: 0; border-radius: 999px; background: var(--raised); border: 1px solid var(--border-strong); transition: transform .5s var(--ease), width .5s var(--ease), height .5s var(--ease); z-index: 0; }
 .seg__item { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 18px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--t3); white-space: nowrap; transition: color .3s; }
 .seg__item small { font-family: var(--f-mono); font-size: 11px; font-weight: 400; color: var(--t4); transition: color .3s; }
 .seg__item:hover { color: var(--t2); }
@@ -192,8 +192,8 @@ svg { width: 1em; height: 1em; flex: none; }
 .demo__arrow span::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid rgba(255,138,76,.6); opacity: 0; animation: ring 2.6s var(--ease) infinite; }
 @keyframes ring { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(1.7); opacity: 0; } }
 .demo__arrow svg { width: 14px; height: 14px; }
-.plat { padding: 14px 16px; border-radius: 14px; background: var(--raised); border: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; transition: border-color .3s, transform .4s var(--ease); }
-.plat:hover { border-color: var(--border-strong); transform: translateX(2px); }
+.plat { padding: 14px 16px; border-radius: 14px; background: var(--raised); border: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; transition: border-color .3s, background-color .3s; }
+.plat:hover { border-color: var(--border-strong); background: #1c1d20; }
 .plat__name { font-size: 15px; font-weight: 500; }
 .plat__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .plat__row span { display: flex; align-items: center; gap: 6px; padding: 8px; border-radius: 8px; background: var(--card); font-size: 13px; color: var(--t2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -400,7 +400,9 @@ svg { width: 1em; height: 1em; flex: none; }
   .fmt__vis { transform: scale(.82); transform-origin: bottom center; height: 112px; margin-bottom: 4px; }
   .fmt b { font-size: 15px; }
   .seg__item { padding: 0 14px; }
-  #services .seg__item small { display: none; }
+  #services .seg { display: flex; flex-direction: column; width: 100%; border-radius: 22px; overflow: visible; }
+  #services .seg__item { width: 100%; justify-content: space-between; height: 48px; padding: 0 18px; border-radius: 18px; }
+  #services .seg__thumb { border-radius: 18px; }
   .demo { padding: 24px 18px 22px; border-radius: 20px; }
   .plat__row { grid-template-columns: 1fr; }
   .work { gap: 12px; row-gap: 28px; }
