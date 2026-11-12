@@ -355,13 +355,33 @@ $$('dialog.modal').forEach((d) => {
   $$('[data-close]', d).forEach((b) => b.addEventListener('click', () => closeModal(d)));
 });
 
-// Book a call
+// Book a call: Calendly pop-up when a link is set in config.js, otherwise the built-in form
+let calendlyLoading;
+function loadCalendly() {
+  if (window.Calendly) return Promise.resolve();
+  if (calendlyLoading) return calendlyLoading;
+  const css = Object.assign(document.createElement('link'), { rel: 'stylesheet', href: 'https://assets.calendly.com/assets/external/widget.css' });
+  document.head.appendChild(css);
+  calendlyLoading = new Promise((res, rej) => {
+    const s = Object.assign(document.createElement('script'), { src: 'https://assets.calendly.com/assets/external/widget.js', async: true, onload: res, onerror: rej });
+    document.head.appendChild(s);
+  });
+  return calendlyLoading;
+}
+function openCalendly() {
+  const url = `${CONFIG.bookingUrl}${CONFIG.bookingUrl.includes('?') ? '&' : '?'}hide_gdpr_banner=1&background_color=0f1011&text_color=f7f8f8&primary_color=ff5a1f`;
+  lenis?.stop();
+  loadCalendly().then(() => {
+    window.Calendly.initPopupWidget({ url });
+    const t = setInterval(() => { if (!document.querySelector('.calendly-overlay')) { clearInterval(t); lenis?.start(); } }, 400);
+  }).catch(() => { lenis?.start(); window.open(CONFIG.bookingUrl, '_blank', 'noopener'); });
+}
 document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-book]');
   if (!b) return;
   e.preventDefault();
   closeMenu();
-  if (CONFIG.bookingUrl) { window.open(CONFIG.bookingUrl, '_blank', 'noopener'); return; }
+  if (CONFIG.bookingUrl) { openCalendly(); return; }
   const d = openModal('book');
   const form = $('form', d);
   if ($('.form-done', d).hidden === false) resetForm(form);
