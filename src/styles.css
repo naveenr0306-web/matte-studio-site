@@ -356,7 +356,8 @@ svg { width: 1em; height: 1em; flex: none; }
 .player { position: relative; width: min(1100px, calc(100% - 32px)); display: flex; flex-direction: column; gap: 14px; }
 .player .modal__close { top: -52px; right: 0; }
 .player__stage { position: relative; border-radius: 20px; overflow: hidden; background: #000; aspect-ratio: 16/9; max-height: calc(100dvh - 140px); display: grid; place-items: center; }
-.player__stage.is-vertical { aspect-ratio: 9/16; width: auto; height: min(80dvh, 820px); margin: 0 auto; }
+.player__stage.is-vertical { aspect-ratio: 9/16; width: min(100%, calc(min(76dvh, 820px) * 9 / 16)); height: auto; max-height: none; margin: 0 auto; }
+.player__stage { width: 100%; max-width: 100%; }
 .player__stage video, .player__stage img { width: 100%; height: 100%; object-fit: cover; }
 .player__stage .player__note { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); padding: 8px 14px; border-radius: 999px; background: rgba(8,9,10,.7); backdrop-filter: blur(8px); font-size: 13px; color: var(--t2); white-space: nowrap; }
 .player__title { text-align: center; }
