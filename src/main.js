@@ -44,7 +44,6 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   closeMenu();
   scrollToTarget(el);
-  history.replaceState(null, '', id);
 });
 
 /* ---------------------------------------------------------------- config wiring */
@@ -537,5 +536,10 @@ faq();
 setupMedia();
 setupDrop();
 setupForms();
-window.addEventListener('load', () => ScrollTrigger.refresh());
-if (location.hash && $(location.hash)) setTimeout(() => scrollToTarget(location.hash), 300);
+window.addEventListener('load', () => { window.scrollTo(0, 0); lenis?.scrollTo(0, { immediate: true }); ScrollTrigger.refresh(); });
+// Always open (and refresh) at the top, on the hero
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+ScrollTrigger.clearScrollMemory('manual');
+if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+window.scrollTo(0, 0); lenis?.scrollTo(0, { immediate: true });
+window.addEventListener('pageshow', () => { window.scrollTo(0, 0); lenis?.scrollTo(0, { immediate: true }); });
