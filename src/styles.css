@@ -349,6 +349,7 @@ svg { width: 1em; height: 1em; flex: none; }
 
 /* ---------- Footer ---------- */
 .footer { padding: 96px 0 48px; }
+.footer .container { max-width: none; padding: 0 clamp(20px, 5.56vw, 80px); }
 .footer__top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
 .footer__brand { display: flex; flex-direction: column; gap: 14px; }
 .footer__cols { display: flex; gap: 96px; flex-wrap: wrap; }
