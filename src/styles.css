@@ -24,6 +24,7 @@
   --ease: cubic-bezier(.22, .8, .2, 1);
 
   --f-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --f-serif: "Instrument Serif", "Times New Roman", serif;
   --f-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, "Courier New", monospace;
 }
 
@@ -65,6 +66,8 @@ svg { width: 1em; height: 1em; flex: none; }
 .mono-label { font-family: var(--f-mono); font-size: 12px; line-height: 1.4; }
 .mono-small { font-family: var(--f-mono); font-size: 11px; line-height: 1.4; }
 .mono-tag { font-family: var(--f-mono); font-size: 10px; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
+/* Accent: Instrument Serif Italic, as in the carousel. One phrase per headline, same colour as the line. */
+.ser { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 1.12em; letter-spacing: -.01em; line-height: 0.9; }
 .tone-1 { color: var(--t1); } .tone-2 { color: var(--t2); } .tone-3 { color: var(--t3); } .tone-4 { color: var(--t4); } .tone-flare { color: var(--flare); }
 
 /* ---------- Layout ---------- */
@@ -199,6 +202,15 @@ svg { width: 1em; height: 1em; flex: none; }
 .plat__row span { display: flex; align-items: center; gap: 6px; padding: 8px; border-radius: 8px; background: var(--card); font-size: 13px; color: var(--t2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .plat__row svg { width: 20px; height: 16px; color: var(--t3); }
 .demo__outcome { position: relative; padding-top: 24px; border-top: 1px solid var(--border); }
+
+/* ---------- Founder ---------- */
+.founder { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 80px; align-items: center; }
+.founder__photo { position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--raised); }
+.founder__photo img { width: 100%; height: 100%; object-fit: cover; }
+.founder__photo figcaption { position: absolute; left: 16px; bottom: 16px; padding: 6px 10px; border-radius: 999px; background: rgba(8,9,10,.6); backdrop-filter: blur(8px); color: var(--t1); }
+.founder__copy { display: flex; flex-direction: column; gap: 20px; }
+.founder__copy .ctas { margin-top: 12px; }
+@media (max-width: 1080px) { .founder { grid-template-columns: minmax(0, 1fr); gap: 40px; } .founder__photo { max-width: 420px; } }
 
 /* ---------- Work ---------- */
 .work { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }

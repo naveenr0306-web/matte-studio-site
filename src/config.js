@@ -20,6 +20,8 @@ export const CONFIG = {
     instagram: '',
     linkedin: '',
     youtube: '',
+    founderLinkedin: '',
+    founderYoutube: '',
   },
 
   // Pricing. Put plain numbers (e.g. 45000) in index.html data-monthly to have the
